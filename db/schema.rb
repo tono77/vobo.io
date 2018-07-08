@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_08_161101) do
+ActiveRecord::Schema.define(version: 2018_07_08_180318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,12 +46,12 @@ ActiveRecord::Schema.define(version: 2018_07_08_161101) do
   create_table "sols", force: :cascade do |t|
     t.text "title"
     t.text "desc"
-    t.bigint "user_id"
     t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_one_id"
+    t.integer "user_two_id"
     t.index ["state_id"], name: "index_sols_on_state_id"
-    t.index ["user_id"], name: "index_sols_on_user_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -94,5 +94,6 @@ ActiveRecord::Schema.define(version: 2018_07_08_161101) do
   add_foreign_key "sol_tags", "sols"
   add_foreign_key "sol_tags", "tags"
   add_foreign_key "sols", "states"
-  add_foreign_key "sols", "users"
+  add_foreign_key "sols", "users", column: "user_one_id"
+  add_foreign_key "sols", "users", column: "user_two_id"
 end
