@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sol.title %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @sol.desc %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @sol.user %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @sol.state %>
+</p>
+
+<%= link_to 'Edit', edit_sol_path(@sol) %> |
+<%= link_to 'Back', sols_path %>

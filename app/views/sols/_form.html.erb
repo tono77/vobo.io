@@ -1,0 +1,37 @@
+<%= form_with(model: sol, local: true) do |form| %>
+  <% if sol.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sol.errors.count, "error") %> prohibited this sol from being saved:</h2>
+
+      <ul>
+      <% sol.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_area :desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state_id %>
+    <%= form.text_field :state_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
