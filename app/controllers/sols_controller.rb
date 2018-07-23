@@ -69,6 +69,6 @@ class SolsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sol_params
-      params.require(:sol).permit(:title, :desc, :user_id, :state_id)
+      params.require(:sol).permit(:title, :desc, :state_id, :user_one_id, :user_two_id)
     end
 end
