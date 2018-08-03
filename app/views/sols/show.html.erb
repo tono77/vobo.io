@@ -1,23 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @sol.title %>
 </p>
 
 <p>
-  <strong>Desc:</strong>
+  <strong>Descripción:</strong>
   <%= @sol.desc %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @sol.user %>
+  <strong>Solicitante:</strong>
+  <%= @sol.user_one.name %>
 </p>
 
 <p>
-  <strong>State:</strong>
-  <%= @sol.state %>
+  <strong>Aprobador:</strong>
+  <%= @sol.user_two.name %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @sol.state.desc %>
 </p>
 
 <%= link_to 'Edit', edit_sol_path(@sol) %> |

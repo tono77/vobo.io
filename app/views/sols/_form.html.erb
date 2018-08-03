@@ -12,22 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :Título %>
     <%= form.text_area :title %>
   </div>
 
   <div class="field">
-    <%= form.label :desc %>
+    <%= form.label :Descripción %>
     <%= form.text_area :desc %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label :user_solicitante %>
+    <%= form.text_field :user_one_id %>
   </div>
 
   <div class="field">
-    <%= form.label :state_id %>
+    <%= form.label :user_aprobador %>
+    <%= form.text_field :user_two_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Estado %>
     <%= form.text_field :state_id %>
   </div>
 

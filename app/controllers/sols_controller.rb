@@ -4,7 +4,7 @@ class SolsController < ApplicationController
   # GET /sols
   # GET /sols.json
   def index
-    @sols = Sol.all
+    @sols = Sol.where(user_one_id: current_user)
   end
 
   # GET /sols/1
@@ -65,6 +65,9 @@ class SolsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_sol
       @sol = Sol.find(params[:id])
+      @desc_est = @sol.state.desc
+      @solicitante = @sol.user_one.name
+      @aprobador = @sol.user_two.name
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
