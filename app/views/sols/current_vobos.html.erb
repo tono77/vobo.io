@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sols</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Desc</th>
+      <th>User</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sols.each do |sol| %>
+      <tr>
+        <td><%= sol.title %></td>
+        <td><%= sol.desc %></td>
+        <td><%= sol.user %></td>
+        <td><%= sol.state %></td>
+        <td><%= link_to 'Show', sol %></td>
+        <td><%= link_to 'Edit', edit_sol_path(sol) %></td>
+        <td><%= link_to 'Destroy', sol, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sol', new_sol_path %>

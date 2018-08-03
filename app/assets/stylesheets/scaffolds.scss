@@ -11,6 +11,33 @@ body {
 
 }
 
+.logincard {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: thin;
+  color: #3f4144;
+  text-align: center;
+}
+
+#vobobutton {
+  background-color: rgba(76, 76, 76, 0);
+  border-color: rgba(76, 76, 76, 1);
+  color: #3f4144;
+  margin: 15px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.jumbotron {
+  background-color: rgba(256, 256, 256, 0.80);
+  border-radius: 0;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 6px 4px 22px 0px rgba(0,0,0,0.12);
+  -moz-box-shadow: 6px 4px 22px 0px rgba(0,0,0,0.12);
+  box-shadow: 6px 4px 22px 0px rgba(0,0,0,0.12);
+}
+
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
