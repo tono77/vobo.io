@@ -26,6 +26,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+
+<!-- THIS IS THE NAVBAR -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
 
@@ -44,9 +46,15 @@
               <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'nav-link' %>
             <% end %>
             </li>
-
+<li>
+    <p>hola ed</p>
+</li>
         </ul>
       </div>
+<!-- NAVBAR END -->
+
+
+
     </nav>
     <%= yield %>
     <p class="notice"><%= notice %></p>
