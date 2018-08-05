@@ -8,7 +8,10 @@ class SolsController < ApplicationController
   end
 
   def current_vobos
-    @sols = Sol.where(user_one_id: current_user)
+    @sols = Sol
+    .select('sols.id, sols.title,sols.desc, users.name, states.desc as estado, sols.created_at')
+    .joins(:state, :user_two)
+    .where(user_one_id:  current_user) 
   end 
 
   # GET /sols/1
