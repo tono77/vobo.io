@@ -6,5 +6,7 @@ Rails.application.routes.draw do
       }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "sols#index"
+  root to: 'sols#index'
+  get '/current_vobos' => 'sols#current_vobos'
+
 end

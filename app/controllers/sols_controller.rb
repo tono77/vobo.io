@@ -4,8 +4,12 @@ class SolsController < ApplicationController
   # GET /sols
   # GET /sols.json
   def index
-    @sols = Sol.where(user_one_id: current_user)
+
   end
+
+  def current_vobos
+    @sols = Sol.where(user_one_id: current_user)
+  end 
 
   # GET /sols/1
   # GET /sols/1.json
@@ -25,10 +29,13 @@ class SolsController < ApplicationController
   # POST /sols.json
   def create
     @sol = Sol.new(sol_params)
+    @sol.user_one_id = current_user.id
+    @sol.state_id = 1
+
 
     respond_to do |format|
       if @sol.save
-        format.html { redirect_to @sol, notice: 'Sol was successfully created.' }
+        format.html { redirect_to @sol, notice: 'Sol successfully created.' }
         format.json { render :show, status: :created, location: @sol }
       else
         format.html { render :new }
