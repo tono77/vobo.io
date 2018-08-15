@@ -1,4 +1,4 @@
-<%= form_with(model: sol, local: true) do |form| %>
+<%= form_with(model: @sol, local: true) do |form| %>
   <% if sol.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(sol.errors.count, "error") %> prohibited this sol from being saved:</h2>
@@ -21,11 +21,15 @@
     <%= form.text_area :desc %>
   </div>
 
-  <div class="field">
+<!--   <div class="field">
     <%= form.label :user_aprobador %>
     <%= form.text_field :user_two_id %>
-  </div>
+  </div> -->
 
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.email_field :email, autocomplete: "email" %>
+  </div>
 <!--   <div class="field">
     <%= form.label :Estado %>
     <%= form.text_field :state_id %>

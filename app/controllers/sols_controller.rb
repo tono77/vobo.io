@@ -31,12 +31,13 @@ class SolsController < ApplicationController
   # POST /sols
   # POST /sols.json
   def create
-    @sol = Sol.new(sol_params)
+    @sol = Sol.new(sol_params.except(:email))
     @sol.user_one_id = current_user.id
     @sol.state_id = 1
 
-
-    respond_to do |format|
+    if User.where(email: sol_params[:email]).exists?
+      @sol.user_two_id = User.where(email: sol_params[:email]).take.id
+      respond_to do |format|
       if @sol.save
         format.html { redirect_to @sol, notice: 'Sol successfully created.' }
         format.json { render :show, status: :created, location: @sol }
@@ -45,6 +46,11 @@ class SolsController < ApplicationController
         format.json { render json: @sol.errors, status: :unprocessable_entity }
       end
     end
+
+    else
+      User.invite!(:email => sol_params[:email], :name => "Estimado")
+    end
+    
   end
 
   # PATCH/PUT /sols/1
@@ -82,6 +88,6 @@ class SolsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sol_params
-      params.require(:sol).permit(:title, :desc, :state_id, :user_one_id, :user_two_id)
+      params.require(:sol).permit(:title, :desc, :state_id, :user_one_id, :user_two_id, :email)
     end
 end
