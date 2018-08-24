@@ -5,12 +5,37 @@
   <%= f.hidden_field :invitation_token, readonly: true %>
 
   <% if f.object.class.require_password_on_accepting %>
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
+	 <div class="field">
+	    <%= f.label :rut %><br />
+	    <%= f.text_field :rut, autofocus: true, autocomplete: "rut" %>
+	  </div>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+	  <div class="field">
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name, autocomplete: "name" %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :photo %><br />
+	    <%= f.text_field :photo, autocomplete: "photo" %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :position %><br />
+	    <%= f.text_field :position, autocomplete: "position" %>
+	  </div>
+  	
+  	<div><%= f.label :password %><br />
+  		<%= f.password_field :password %>
+  	</div>
+
+  	<div><%= f.label :password_confirmation %><br />
+  		<%= f.password_field :password_confirmation %>
+  	</div>
   <% end %>
 
   <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
 <% end %>
+
+
+

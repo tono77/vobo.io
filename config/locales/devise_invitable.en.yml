@@ -13,8 +13,8 @@ en:
         header: "Send invitation"
         submit_button: "Send an invitation"
       edit:
-        header: "Set your password"
-        submit_button: "Set my password"
+        header: "Bienvenido a VOBO Completa tu Perfil!"
+        submit_button: "Empezar a Usar VOBO"
     mailer:
       invitation_instructions:
         subject: "Invitation instructions"
