@@ -17,7 +17,11 @@
 
 <p>
   <strong>Aprobador:</strong>
-  <%= @sol.user_two.name %>
+  <% if @sol.user_two.name.nil? %>
+    <%= @sol.user_two.email + " (Invitación Enviada)" %>
+  <% else %>
+    <%= @sol.user_two.name %>
+  <% end %>
 </p>
 
 <p>

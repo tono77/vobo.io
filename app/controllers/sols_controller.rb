@@ -34,10 +34,16 @@ class SolsController < ApplicationController
     @sol = Sol.new(sol_params.except(:email))
     @sol.user_one_id = current_user.id
     @sol.state_id = 1
+    @email = sol_params[:email]
 
     if User.where(email: sol_params[:email]).exists?
       @sol.user_two_id = User.where(email: sol_params[:email]).take.id
-      respond_to do |format|
+    else
+      User.invite!(:email => sol_params[:email])
+      @sol.user_two_id = User.where(email: sol_params[:email]).take.id
+    end
+
+    respond_to do |format|
       if @sol.save
         format.html { redirect_to @sol, notice: 'Sol successfully created.' }
         format.json { render :show, status: :created, location: @sol }
@@ -45,10 +51,6 @@ class SolsController < ApplicationController
         format.html { render :new }
         format.json { render json: @sol.errors, status: :unprocessable_entity }
       end
-    end
-
-    else
-      User.invite!(:email => sol_params[:email], :name => "Estimado")
     end
     
   end
